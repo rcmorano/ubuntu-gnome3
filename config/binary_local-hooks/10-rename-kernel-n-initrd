@@ -1,0 +1,49 @@
+#!/bin/bash
+
+HOOK_NAME=$(basename $0)
+echo "Executing local hook $HOOK_NAME..."
+
+# rename kernel and initrd to usual Ubuntu names
+
+KERNEL=$(find binary/casper/ -name vmlinuz*)
+INITRD=$(find binary/casper/ -name initrd*)
+
+if [ ! -z $KERNEL ]
+then
+	echo "[ $HOOK_NAME ] Renaming kernel..."
+	mv $KERNEL binary/casper/vmlinuz
+fi
+
+# include casper uuid in initrd and then rename
+
+if [ ! -z $INITRD ]
+then
+	echo "[ $HOOK_NAME ] Moving initrd-tmp to chroot..."
+	mv $INITRD chroot/tmp/initrd.gz
+fi
+
+echo "[ $HOOK_NAME ] Executing casper-new-uuid inside chroot..."
+# NOTE: it is not using the paths that are passed as args... BUGGY script :]
+chroot chroot/ casper-new-uuid /tmp/initrd.gz /tmp/initrd-new.gz /tmp/uuid.conf
+
+if [ -e chroot/initrd.gz ]
+then
+	echo "[ $HOOK_NAME ] Recompressing initrd with lzma..."
+	gzip -d chroot/initrd.gz
+	lzma -9c chroot/initrd > chroot/initrd.lz
+	echo "[ $HOOK_NAME ] Moving back fixed initrd to iso-binary dir..."
+	mv chroot/initrd.lz binary/casper/initrd.lz
+fi
+# remove temporal initrd
+test -f chroot/tmp/initrd.lz && rm chroot/tmp/initrd.lz
+test -f chroot/tmp/initrd.gz && rm chroot/tmp/initrd.gz
+test -f chroot/initrd.gz && rm chroot/initrd.gz
+test -f chroot/initrd && rm chroot/initrd
+
+# include casper-uuid in iso (.disk/casper-uuid-generic)
+
+if [ -e chroot/casper-uuid-generic ]
+then
+	echo "[ $HOOK_NAME ] Moving casper-uuid-generic to iso-binary dir..."
+	mv chroot/casper-uuid-generic binary/.disk/casper-uuid-generic
+fi

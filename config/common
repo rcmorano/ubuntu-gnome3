@@ -1,0 +1,78 @@
+# config/common - common options for live-build(7)
+
+# LB_CONFIG_VERSION: internal version of the configuration file format
+LB_CONFIG_VERSION="3.0~a23"
+
+# $LB_APT: set package manager
+# (Default: apt)
+LB_APT="apt"
+
+# $LB_APT_RECOMMENDS: set apt/aptitude recommends
+# (Default: true)
+LB_APT_RECOMMENDS="false"
+
+# $LB_APT_SECURE: set apt/aptitude security
+# (Default: true)
+LB_APT_SECURE="true"
+
+# $LB_BOOTSTRAP: set bootstrap program
+# (Default: debootstrap)
+LB_BOOTSTRAP="debootstrap"
+
+# $LB_CACHE: control cache
+# (Default: true)
+LB_CACHE="false"
+
+# $LB_CACHE_PACKAGES: control if downloaded packages files should be cached
+# (Default: true)
+LB_CACHE_PACKAGES="false"
+
+# $LB_CACHE_STAGES: control if completed stages should be cached
+# (Default: bootstrap)
+LB_CACHE_STAGES="bootstrap"
+
+# $LB_DEBCONF_FRONTEND: set debconf(1) frontend to use
+# (Default: noninteractive)
+LB_DEBCONF_FRONTEND="noninteractive"
+
+# $LB_DEBCONF_NOWARNINGS: set debconf(1) warnings
+# (Default: yes)
+LB_DEBCONF_NOWARNINGS="yes"
+
+# $LB_DEBCONF_PRIORITY: set debconf(1) priority to use
+# (Default: critical)
+LB_DEBCONF_PRIORITY="critical"
+
+# $LB_INITRAMFS: set initramfs hook
+# (Default: auto)
+LB_INITRAMFS="auto"
+
+# $LB_INITRAMFS_COMPRESSION: set initramfs compression
+# (Default: gzip)
+LB_INITRAMFS_COMPRESSION="gzip"
+
+# $LB_FDISK: set fdisk program
+# (Default: autodetected)
+LB_FDISK="fdisk.distrib"
+
+# $LB_LOSETUP: set losetup program
+# (Default: autodetected)
+LB_LOSETUP="losetup"
+
+# $LB_MODE: set distribution mode
+# (Default: ubuntu)
+LB_MODE="ubuntu"
+
+# $LB_TASKSEL: set tasksel program
+# (Default: apt)
+LB_TASKSEL="apt"
+
+# $_VERBOSE: enable verbose
+# (Default: false)
+_VERBOSE="true"
+
+# Internal stuff (FIXME)
+APT_OPTIONS="--yes --force-yes"
+APTITUDE_OPTIONS="--assume-yes"
+GZIP_OPTIONS="--best --rsyncable"
+ISOHYBRID_OPTIONS=""

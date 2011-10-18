@@ -1,0 +1,57 @@
+# config/binary - options for live-build(7), binary stage
+
+# $LB_BINARY_FILESYSTEM: set image filesystem
+# (Default: fat16)
+LB_BINARY_FILESYSTEM="fat16"
+
+# $LB_BINARY_IMAGES: set image type
+# (Default: iso-hybrid)
+LB_BINARY_IMAGES="iso-hybrid"
+
+# $LB_BOOTLOADER: set bootloader
+# (Default: syslinux)
+LB_BOOTLOADER="syslinux"
+
+# $LB_COMPRESSION: set compression
+# (Default: gzip)
+LB_COMPRESSION="gzip"
+
+# $LB_GRUB_SPLASH: set custom grub splash
+# (Default: empty)
+LB_GRUB_SPLASH=""
+
+# $LB_HOSTNAME: set hostname
+# (Default: ubuntu)
+LB_HOSTNAME="ubuntu"
+
+# $LB_ISO_APPLICATION: set iso author
+# (Default: Ubuntu Live)
+LB_ISO_APPLICATION="Ubuntu live"
+
+# $LB_ISO_PREPARER: set iso preparer
+# (Default: live-build $VERSION; http://packages.qa.debian.org/live-build)
+LB_ISO_PREPARER="live-build $VERSION; http://packages.qa.debian.org/live-build"
+
+# $LB_ISO_PUBLISHER: set iso publisher
+# (Default: Debian Live project; http://live.debian.net/; debian-live@lists.debian.org)
+LB_ISO_PUBLISHER="Ubuntu live; http://www.ubuntu.com/; dev@null.com"
+
+# $LB_ISO_VOLUME: set iso volume (max 32 chars)
+# (Default: Ubuntu karmic $(date +%Y%m%d-%H:%M))
+LB_ISO_VOLUME="Ubuntu live $(date +%Y%m%d-%H:%M)"
+
+# $LB_SWAP_FILE_PATH: set swap file path
+# (Default: )
+LB_SWAP_FILE_PATH=""
+
+# $LB_SWAP_FILE_SIZE: set swap file size
+# (Default: 512)
+LB_SWAP_FILE_SIZE="512"
+
+# $LB_SYSLINUX_THEME: set syslinux theme package
+# (Default: ubuntu-oneiric)
+LB_SYSLINUX_THEME="ubuntu-oneiric"
+
+# $LB_USERNAME: set username
+# (Default: ubuntu)
+LB_USERNAME="ubuntu"
