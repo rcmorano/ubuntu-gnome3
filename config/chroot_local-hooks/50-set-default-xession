@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp /usr/share/xsessions/ubuntu.desktop /usr/share/xsessions/ubuntu.desktop.orig
+cp /usr/share/xsessions/gnome-shell.desktop /usr/share/xsessions/ubuntu.desktop
+
