@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# packages that should be removed on the installed system
+LIVE_PACKAGES="ubiquity"
+
+for pkg in $LIVE_PACKAGES
+do
+    echo $pkg >> binary/casper/filesystem.manifest-remove
+done
