@@ -1,0 +1,4 @@
+#!/bin/bash
+
+chmod 644 /etc/apt/apt.conf.d/*
+chmod 644 /etc/hosts
